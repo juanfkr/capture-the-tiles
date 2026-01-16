@@ -8,11 +8,11 @@ function Tile.new(part: Part)
 end
 
 -- muda a cor do tile
-function Tile:setColor(color: Color3, hit)
+function Tile:setColor(color: BrickColor, hit)
     if not self:wasTouchedByPlayer(hit) then return end
     if self:alreadyCaptured() then return end
 
-    self.part.Color = color
+    self.part.BrickColor = color
     
     print("Tile color changed to:", color)
 end
@@ -24,7 +24,7 @@ end
 
 -- verifica se o tile ja foi capturado
 function Tile:alreadyCaptured(): boolean
-    return self.part.Color == Color3.fromRGB(255, 0, 0)
+    return self.part.Color == BrickColor.new("Lapis")
 end
 
 return Tile
